@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include custom CSS for styling -->
+    <style>
+        .chat-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .message {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 10px;
+        }
+
+        .user-message {
+            background-color: #007bff;
+            color: #fff;
+            text-align: right;
+        }
+
+        .response-message {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .message-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container chat-container">
+        <h2>Chat Application</h2>
+        <div id="chat-messages"></div>
+        <input type="text" id="message-input" class="message-input" placeholder="Type your message">
+        <button onclick="sendMessage()" class="btn btn-primary">Send</button>
+    </div>
+
+    <!-- Include Bootstrap and jQuery JavaScript libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function sendMessage() {
+            const messageInput = document.getElementById('message-input');
+            const message = messageInput.value.trim();
+
+            if (message !== '') {
+                // Create a new user message element
+                const userMessageElement = document.createElement('div');
+                userMessageElement.className = 'message user-message';
+                userMessageElement.innerText = message;
+                
+                // Append user message to the chat container
+                const chatMessages = document.getElementById('chat-messages');
+                chatMessages.appendChild(userMessageElement);
+
+                // Clear the input field
+                messageInput.value = '';
+
+                // Send the message to the server (replace with your server-side logic)
+                fetch('/api', {
+                    method: 'POST',
+                    body: JSON.stringify({ message }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Create a new response message element
+                    const responseMessageElement = document.createElement('div');
+                    responseMessageElement.className = 'message response-message';
+                    responseMessageElement.innerText = data.message;
+
+                    // Append response message to the chat container
+                    chatMessages.appendChild(responseMessageElement);
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        }
+    </script>
+</body>
+</html>
