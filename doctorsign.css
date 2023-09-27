@@ -1,0 +1,183 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .signup-form {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 450px;
+  }
+
+  .signup-form h2 {
+    text-align: center;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+    padding-right:20px ;
+  }
+
+  label {
+    display: block;
+    font-weight: bold;
+  }
+
+  input[type="text"], input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+
+  .btn {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+  }
+
+  .btn:hover {
+    background-color: #2980b9;
+  }
+  /* Style the input[type="file"] element */
+#img {
+  display: none; /* Hide the default file input */
+}
+
+/* Style a custom button that mimics the appearance of an input field */
+.custom-file-input {
+  background-color: #3498db;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Hover effect for the custom button */
+.custom-file-input:hover {
+  background-color: #2980b9;
+}
+
+/* Style the label text that appears on the button */
+.custom-file-label {
+  font-weight: bold;
+}
+
+/* Style the label when the input is focused */
+#img:focus + label {
+  outline: 2px solid #3498db;
+}
+
+/* Style the label when a file is selected */
+#img:valid + label {
+  background-color: #2ecc71;
+}
+
+/* Style the label text when a file is selected */
+#img:valid + label::before {
+  content: 'Image Selected';
+}
+
+/* Style the label text when no file is selected */
+label[for="img"]::before {
+  content: 'Select Image';
+  display: inline-block;
+  margin-right: 10px;
+}
+/* Hide the default dropdown arrow */
+select#file::-ms-expand,
+select#file::-webkit-select-placeholder {
+  display: none;
+}
+
+/* Style the dropdown container */
+select#file {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 2px solid #3498db;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+  background-color: #fff;
+  color: #3498db;
+  outline: none;
+}
+
+/* Style the options within the dropdown */
+select#file option {
+  font-weight: bold;
+}
+
+/* Hover effect for the dropdown container */
+select#file:hover {
+  border-color: #2980b9;
+}
+
+/* Focus effect for the dropdown container */
+select#file:focus {
+  border-color: #3498db;
+}
+/* Hide the default file input */
+input[type="file"]#file {
+    display: none;
+  }
+  
+  /* Style the custom file input container */
+  label#file-label {
+    background-color: #3498db;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  }
+  
+  /* Hover effect for the custom file input container */
+  label#file-label:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Style the label text that appears on the button */
+  label#file-label::after {
+    content: 'Select a File';
+  }
+  
+  /* Style the label text when a file is selected */
+  input[type="file"]#file:valid + label#file-label::after {
+    content: 'File Selected: ' attr(data-file-name);
+  }
+  
+  /* Style the file input itself (hidden) */
+  input[type="file"]#file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  

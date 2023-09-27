@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="doctorsign.css">
+</head>
+<body>
+  <div class="signup-form">
+    <h2>Sign Up</h2>
+    <form action="#" method="post">
+      <div class="form-group">
+        <label for="license">License Number:</label>
+        <input type="text" id="license" name="license" required>
+      </div>
+      <div class="form-group">
+        <label for="qualification">Educational Qualification:</label>
+        <input type="text" id="qualification" name="qualification" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+      <div class="form-group">
+        <label for="aadhar">Aadhar Number:</label>
+        <input type="text" id="aadhar" name="aadhar" required>
+      </div>
+      <span style="font-weight: 600;">Image must be less than 5 MB</span>
+      <div class="form-group">
+      <input type="file" id="img" accept=".pdf">
+      <label for="img" class="custom-file-input"></label>
+      </div>
+      </span>
+      <div class="form-group">
+        <select id="file">
+            <option value="choice1">1. Marticulate</option>
+            <option value="choice2">2. Post Marticulate</option>
+            <option value="choice3">3. Birth Certificate</option>
+          </select>          
+      </div>
+      <span  style="font-weight: 600;">Input file of the class you have selected Above</span>
+      <div class="form-group">
+        <input type="file" id="file" accept=".pdf" data-file-name="">
+<label id="file-label"></label>
+    </div>
+      <button type="submit" class="btn">Sign Up</button>
+    </form>
+  </div>
+</body>
+</html>
